@@ -2092,6 +2092,7 @@ static void ffs_func_eps_disable(struct ffs_function *func)
 	unsigned long flags;
 
 	spin_lock_irqsave(&func->ffs->eps_lock, flags);
+        ffs = func->ffs;
 	count = func->ffs->eps_count;
 	epfile = func->ffs->epfiles;
 	ep = func->eps;
@@ -3857,7 +3858,6 @@ static void ffs_func_unbind(struct usb_configuration *c,
 	func->function.ssp_descriptors = NULL;
 	func->interfaces_nums = NULL;
 
-	ffs_event_add(ffs, FUNCTIONFS_UNBIND);
 
 	ffs_log("exit: state %d setup_state %d flag %lu", ffs->state,
 		ffs->setup_state, ffs->flags);
