@@ -56,7 +56,7 @@ CCACHE=$(command -v ccache)
 objdir="${kernel_dir}/out"
 anykernel=$HOME/anykernel
 builddir="${kernel_dir}/build"
-ZIMAGE=$kernel_dir/out/arch/arm64/boot/Image.gz-dtb
+ZIMAGE=$kernel_dir/out/arch/arm64/boot/Image.gz
 kernel_name="xcalibur-v4.6-violet-dynamic"
 variant="Retrofit Dynamic"
 support="Android 13(T)-15(V)"
@@ -112,7 +112,7 @@ compile()
 
 completion() {
   cd ${objdir}
-  COMPILED_IMAGE=arch/arm64/boot/Image.gz-dtb
+  COMPILED_IMAGE=arch/arm64/boot/Image.gz
   COMPILED_DTBO=arch/arm64/boot/dtbo.img
   if [[ -f ${COMPILED_IMAGE} && ${COMPILED_DTBO} ]]; then
 
